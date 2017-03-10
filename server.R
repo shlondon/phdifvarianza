@@ -106,58 +106,58 @@ shinyServer(function(input,output,session){
                                    tipo_de_prueba = input$h0)
         })
         
-        output$resul1 <- renderText({
-                inFile <- input$file1
-                if(is.null(inFile)) 
-                        dt <- read.table('unequal_var_data.txt', header=T, sep='\t')
-                else dt <- read.csv(inFile$datapath, header=input$header, sep=input$sep)
-                dt <- na.omit(dt)  # Para eliminar obs con NA
-                x <- dt[, input$variable1]
-                group <- dt[, input$variable2]
-                if (nlevels(group) != 2) group <- dt[, sapply(dt, is.factor)]
-                xx <- split(x, group)
-                ph <- t.test(x=xx[[1]], y=xx[[2]],
-                             alternative=input$h0, 
+       # output$resul1 <- renderText({
+        #        inFile <- input$file1
+         #       if(is.null(inFile)) 
+          #              dt <- read.table('unequal_var_data.txt', header=T, sep='\t')
+           #     else dt <- read.csv(inFile$datapath, header=input$header, sep=input$sep)
+            #    dt <- na.omit(dt)  # Para eliminar obs con NA
+             #   x <- dt[, input$variable1]
+              #  group <- dt[, input$variable2]
+               # if (nlevels(group) != 2) group <- dt[, sapply(dt, is.factor)]
+                #xx <- split(x, group)
+                #ph <- t.test(x=xx[[1]], y=xx[[2]],
+                #             alternative=input$h0, 
                              #mu=input$delta0, 
-                             conf.level=input$alfa
+                 #            conf.level=input$alfa
                              #,
                              #var.equal=input$var.equal
-                             )
-                conclusion <- ifelse(ph$p.value < 0.05, 'se rechaza', 'no se rechaza')
-                paste0('El estadistico de prueba fue to=', round(ph$statistic, 4),
-                       ' con un valor P de ', round(ph$p.value, 2), ', 
-                       por lo tanto se concluye
-                       que basados en la evidencia muestral 
-                       la hipotesis nula ', conclusion,
-                       ' (nivel de significancia 5%).')
-        })
+                  #           )
+                #conclusion <- ifelse(ph$p.value < 0.05, 'se rechaza', 'no se rechaza')
+                #paste0('El estadistico de prueba fue to=', round(ph$statistic, 4),
+                 #      ' con un valor P de ', round(ph$p.value, 2), ', 
+                  #     por lo tanto se concluye
+                   #    que basados en la evidencia muestral 
+                    #   la hipotesis nula ', conclusion,
+                     #  ' (nivel de significancia 5%).')
+        #})
         
         
-        output$resul2 <- renderText({
-                inFile <- input$file1
-                if(is.null(inFile)) 
-                        dt <- read.table('unequal_var_data.txt', header=T, sep='\t')
-                else dt <- read.csv(inFile$datapath, header=input$header, sep=input$sep)
-                dt <- na.omit(dt)  # Para eliminar obs con NA
-                x <- dt[, input$variable1]
-                group <- dt[, input$variable2]
-                if (nlevels(group) != 2) group <- dt[, sapply(dt, is.factor)]
-                xx <- split(x, group)
-                ph <- t.test(x=xx[[1]], y=xx[[2]],
-                             alternative=input$h0, 
+        #output$resul2 <- renderText({
+         #       inFile <- input$file1
+          #      if(is.null(inFile)) 
+           #             dt <- read.table('unequal_var_data.txt', header=T, sep='\t')
+            #    else dt <- read.csv(inFile$datapath, header=input$header, sep=input$sep)
+             #   dt <- na.omit(dt)  # Para eliminar obs con NA
+              #  x <- dt[, input$variable1]
+               # group <- dt[, input$variable2]
+                #if (nlevels(group) != 2) group <- dt[, sapply(dt, is.factor)]
+                #xx <- split(x, group)
+                #ph <- t.test(x=xx[[1]], y=xx[[2]],
+                        #     alternative=input$h0, 
                              #mu=input$delta0, 
-                             conf.level=input$alfa
+                         #    conf.level=input$alfa
                              #,
                              #var.equal=input$var.equal
-                             )
-                intervalo <- paste("(", round(ph$conf.int[1], digits=4),
-                                   ", ",
-                                   round(ph$conf.int[2], digits=4),
-                                   ").", sep='')
-                paste0('El intervalo de confianza del ', 100*input$alfa,
-                       '% para la diferencia de medias poblacionales es ',
-                       intervalo)
-        })
+                          #   )
+                #intervalo <- paste("(", round(ph$conf.int[1], digits=4),
+                 #                  ", ",
+                  #                 round(ph$conf.int[2], digits=4),
+                   #                ").", sep='')
+                #paste0('El intervalo de confianza del ', 100*input$alfa,
+                 #      '% para la diferencia de medias poblacionales es ',
+                  #     intervalo)
+        #})
         
         output$miteoria <- renderUI({
                 HTML(markdown::markdownToHTML(knit(input='teoria.md', quiet = TRUE)))

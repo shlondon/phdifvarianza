@@ -90,17 +90,19 @@ shinyUI(pageWithSidebar(
                                      tableOutput('statistic'),
                                      
                                      h5("En la siguiente tabla se muestran los principales elementos de la prueba de hipotesis:
-                                        varianza muestral, varianza escogida para la hipotesis nula, estadistico de prueba, valores de la region critica de rechazo, intervalo de confianza y
-                                        conclusion de la prueba."),
-                                     tableOutput("analisis_ph"),
+                                        varianza muestral del numerador y del denominador, estadistico de prueba,
+                                        grados de libertad del numerador y del denominador, valor P, valores de la region critica de rechazo y 
+                                        conclusion de la prueba"),
+                                     tableOutput("analisis_ph")
                                      
-                                     h5("- Resultado de la prueba de hipotesis:"),
-                                     textOutput("resul1"),
+                                     #h5("- Resultado de la prueba de hipotesis:"),
+                                     #textOutput("resul1"),
                                      
-                                     h5(HTML("- Intervalo de confianza para la 
-                                             diferencia de medias 
-                                             &mu;<sub>1</sub> - &mu;<sub>2</sub>")),
-                                     textOutput("resul2")),
+                                     #h5(HTML("- Intervalo de confianza para la 
+                                      #       diferencia de medias 
+                                       #      &mu;<sub>1</sub> - &mu;<sub>2</sub>")),
+                                     #textOutput("resul2")
+                                     ),
                             
                             tabPanel("Base de datos", 
                                      "A continuacion la base de datos ingresada por el usuario.",
