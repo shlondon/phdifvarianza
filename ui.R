@@ -108,7 +108,7 @@ shinyUI(pageWithSidebar(
                                      "A continuacion la base de datos ingresada por el usuario.",
                                      uiOutput('summary')),
                             
-                            tabPanel("Teoria", includeHTML("include.html"))
+                            tabPanel("Teoria", includeMarkdown("include.md"))
                             
                                      )
                                      )
