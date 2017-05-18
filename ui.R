@@ -45,11 +45,11 @@ shinyUI(pageWithSidebar(
                             choices=""),
                 
                 #numericInput(inputId='delta0', 
-                 #            label=HTML("Ingrese el valor de referencia 
-                  #                      &Delta;<sub>0</sub> para la probar
-                   #                     H<sub>0</sub>: &mu;<sub>1</sub> 
-                    #                    - &mu;<sub>2</sub> = &Delta;<sub>0</sub>"), 
-                     #        value=0),
+                #            label=HTML("Ingrese el valor de referencia 
+                #                      &Delta;<sub>0</sub> para la probar
+                #                     H<sub>0</sub>: &mu;<sub>1</sub> 
+                #                    - &mu;<sub>2</sub> = &Delta;<sub>0</sub>"), 
+                #        value=0),
                 
                 selectInput(inputId="h0", 
                             label=HTML("Elija el tipo de hipotesis alterna
@@ -59,9 +59,9 @@ shinyUI(pageWithSidebar(
                                          "Mayor" = "greater"),
                             selected = "two.sided"),
                 
-               # checkboxInput(inputId='var.equal',
+                # checkboxInput(inputId='var.equal',
                 #              label='Las varianzas poblacionales son iguales', 
-                 #             value=TRUE),
+                #             value=TRUE),
                 
                 sliderInput(inputId='alfa', 
                             label='Opcional: elija el nivel de significancia
@@ -99,8 +99,8 @@ shinyUI(pageWithSidebar(
                                      #textOutput("resul1"),
                                      
                                      #h5(HTML("- Intervalo de confianza para la 
-                                      #       diferencia de medias 
-                                       #      &mu;<sub>1</sub> - &mu;<sub>2</sub>")),
+                                     #       diferencia de medias 
+                                     #      &mu;<sub>1</sub> - &mu;<sub>2</sub>")),
                                      #textOutput("resul2")
                                      ),
                             
@@ -111,6 +111,6 @@ shinyUI(pageWithSidebar(
                             tabPanel("Teoria", includeMarkdown("include.md"))
                             
                                      )
-                                     )
+                )
         
-                ))
+        ))
