@@ -4,7 +4,7 @@ source("funciones.R")
 
 shinyUI(pageWithSidebar(
         headerPanel(title=HTML("Prueba de hipotesis para igualdad de dos Varianzas 
-                               &sigma;<sub>1</sub> - &sigma;<sub>2</sub>"),
+                               &sigma;<sub>1</sub> / &sigma;<sub>2</sub>"),
                     windowTitle="PH dif medias"),
         
         sidebarPanel(
